@@ -30,3 +30,6 @@ sandbox*.*
 # System Files
 .DS_Store
 Thumbs.db
+
+# temporary 
+/src/_TESTS_

@@ -115,13 +115,13 @@ export const setupOsVersion = async () => {
 export const setupHostSpecific = async () => {
   if (PLATFORM_IS_WINDOWS) {
     //console.log('Acquiring Windows Persistent Powershell');
-    si.powerShellStart();
+    //si.powerShellStart();
   }
 };
 
 export const tearDownHostSpecific = () => {
   if (PLATFORM_IS_WINDOWS) {
     // console.log('Releasing Windows Persistent Powershell');
-    si.powerShellRelease();
+    //si.powerShellRelease();
   }
 };

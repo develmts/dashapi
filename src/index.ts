@@ -1,10 +1,9 @@
 import compression from 'compression';
 import cors from 'cors';
-// import cronParser from 'cronstrue';
 import express from 'express';
 import { readFileSync } from 'fs';
 import http from 'http';
-// import cron from 'node-cron';
+
 import path from 'path';
 import {
   debounceTime,
@@ -18,7 +17,7 @@ import { Server } from 'socket.io';
 import { CONFIG } from './config.js';
 import getNetworkInfo from './data/network.js';
 import { getDynamicServerInfo } from './dynamic-info.js';
-//import { environment } from './environments/environment';
+
 import {
   setupHostSpecific,
   setupNetworking,
@@ -50,20 +49,6 @@ if (!CONFIG.disable_integrations) {
 
 app.use(compression());
 
-// if (environment.production) {
-//   // Serve static files from the React app
-//   app.use(
-//     express.static(path.join(__dirname, '../view'), {
-//       maxAge: '1y',
-//       setHeaders: (res, path) => {
-//         if (express.static.mime.lookup(path) === 'text/html') {
-//           res.setHeader('Cache-Control', 'public, max-age=0');
-//         }
-//       },
-//     })
-//   );
-// }
-
 // Allow integrations
 if (!CONFIG.disable_integrations) {
   const getVersionFile = () => {
@@ -81,6 +66,8 @@ if (!CONFIG.disable_integrations) {
   };
 
   const versionFile = getVersionFile();
+
+  
   app.get('/config', (_, res) => {
     res.send({
       config: {
